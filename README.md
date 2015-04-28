@@ -1,12 +1,18 @@
 # star_detection
 ## This is our EE368 final project
-1. Clone to your PC:  
 
-git clone https://github.com/suyao/star_detection.git  
+Github is a great tool for storing collaborating works, where team member can work on the project independently in parallel without overwriting each other's work, and keep track of the progress. Below is a brief introduction on how to start on it.  
 
-2. Useful commands:  
+###Clone to your PC:  
 
-for example, after you add a file called star.m
+Open up a terminal, and goes to the directory where you would like to place this folder
+
+>git clone https://github.com/suyao/star_detection.git  
+
+###Useful commands:  
+
+For example, after you add a file called star.m
+
 >git add star.m  
 
 >git commit -m 'a commit msg you would like to address for your modifications, making this meaningful would help others and you to look back at the past work'  
@@ -21,3 +27,6 @@ when updating your local files (make sure to do git add and git commit first if 
 
 >git pull
  
+###Website tracking
+
+The thing I like most about github is that you can track your project progress and others' update so conviniently through its website. Click on Commit tab, you can see recent commits by you/your team members. Click on any commit, you can see which files are changed, and if you are interested in that particular file, you can take a closer look at it. Lines marked as red starting with a '-' sign meaning deletion, lines marked as green starting with a '+' sign meaning addition. In this way, you can just focus on those changes to better understand each other's recent updates. 
