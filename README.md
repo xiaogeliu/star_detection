@@ -1,5 +1,5 @@
 # star_detection
-This is our EE368 final project
+This is our EE368 final project \n
 Clone to your PC: 
 git clone https://github.com/suyao/star_detection.git
 Useful commands:
