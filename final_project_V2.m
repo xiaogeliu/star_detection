@@ -1,0 +1,49 @@
+%%test the test image for the database.
+clc;
+clear all;
+load('constel');
+%%test
+trainname={'test1.jpg'};
+Train=im2double(imread(trainname{1}));
+Train_gray=rgb2gray(Train);
+Level=graythresh(Train_gray);
+Train_Thre=im2bw(Train_gray,Level);
+
+% EP=strel('disk',2);
+% Train_Reduce=imdilate(imerode(Train_Thre,EP),EP);
+% 
+Train_Reduce=areaFilter(Train_Thre, 1000, 20);
+imLabel = bwlabel(Train_Reduce);
+shapeProps = regionprops(imLabel, 'Area');
+star=zeros(length(shapeProps),5);
+imshow(Train);
+hold on
+for nStar=1:1:length(shapeProps)
+    [y,x] =find(imLabel == nStar);
+    centerx=mean(x);
+    centery=mean(y);
+    star(nStar,1) = shapeProps(nStar).Area;
+    star(nStar,2)=centerx;
+    star(nStar,3)=centery;
+%     scatter(centerx,centery,star(nStar,1),'filled','r');
+end
+consteltest=star;%flipud(sortrows(star));
+% consteltest(:,2)=consteltest(:,2)-consteltest(1,2);
+% consteltest(:,3)=consteltest(:,3)-consteltest(1,3);
+for FiStar=1%:1:size(consteltest)
+    for SeStar=FiStar+1%:1:size(consteltest)
+        XY_test=consteltest(:,2:3);
+        theta1=atan(constel(2,3)/constel(2,2));
+        theta2=atan((consteltest(SeStar,3)-consteltest(FiStar,3))/(consteltest(SeStar,2)-consteltest(FiStar,2)));
+        theta=theta2-theta1;
+        TM=[cos(theta),-sin(theta);sin(theta),cos(theta)];
+        XY=constel(:,2:3)';
+        XY=(TM*XY)'
+        Scale=(consteltest(2,2)-consteltest(1,2))/XY(2,1);
+        XY=Scale*XY
+        XY(:,1)=XY(:,1)+consteltest(1,2)
+        XY(:,2)=XY(:,2)+consteltest(1,3)
+        scatter(XY(:,1),XY(:,2),26,'filled','r');
+    end
+end
+
