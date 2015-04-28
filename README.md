@@ -2,7 +2,8 @@
 ## This is our EE368 final project
 1. Clone to your PC:  
 
-git clone https://github.com/suyao/star_detection.git
+git clone https://github.com/suyao/star_detection.git  
+
 2. Useful commands:  
 
 for example, after you add a file called star.m
