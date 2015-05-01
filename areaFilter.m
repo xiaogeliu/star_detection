@@ -1,3 +1,4 @@
+%%%%%%%%blue
 function areaThresh = areaFilter( colorThresh, upperLimit, lowerLimit)
 areaThresh = colorThresh;
 imLabel = bwlabel(areaThresh);
